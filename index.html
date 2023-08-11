@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de livros</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/65d3d9eac0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="cabecalho">
+            <div class="container">
+                <div class="imagem">
+                    <img src="img/logo.png" alt="logo">
+                </div>
+                <div class="navegacao">
+                    <i id="icone" class="fa-regular fa-heart" style="color: #000000;"></i>
+                    <i id="icone" class="fa-solid fa-cart-arrow-down" style="color: #000000;"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <h1>Cadastro de livros</h1>
+    <input type="text" id="nomeLivro" placeholder="Nome">
+    <input type="text" id="autorLivro" placeholder="Autor">
+    <input type="text" id="anoLivro" placeholder="Ano">
+    <button onclick="adicionar()">Adicionar livro</button>
+    <button onclick="mostrarLivros()">Mostrar</button>
+    <div id="resultado1"></div>
+    <div id="resultado2"></div>
+    <div id="resultado3"></div>
+
+    <script>
+        let biblioteca = [];
+
+        function cadastro(nome, autor, ano) {
+            var livro = {
+                titulo: nome,
+                autor: autor,
+                ano: ano
+            };
+            biblioteca.push(livro)
+        }
+
+        function adicionar() {
+            let nome = document.getElementById('nomeLivro').value;
+            let autor = document.getElementById('autorLivro').value;
+            let ano = document.getElementById('anoLivro').value;
+            cadastro(nome, autor, ano);
+        }
+
+        function mostrarLivros() {
+            // console.log(`resultado:${biblioteca[0].titulo}`)
+            let resultado1 = `${biblioteca[0].titulo}`;
+            document.querySelector('#resultado1').textContent = resultado1
+
+            let resultado2 = `${biblioteca[0].autor}`;
+            document.querySelector('#resultado2').textContent = resultado2
+
+            let resultado3 = `${biblioteca[0].ano}`;
+            document.querySelector('#resultado3').textContent = resultado3
+        }
+    </script>
+</body>
+
+</html>

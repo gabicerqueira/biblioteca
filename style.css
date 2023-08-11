@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 0; */
+}
+
+.container{
+    margin: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cabecalho{
+    background-color: #fef4e5;
+    height: 100px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.299);
+}
+
+.cabecalho img{
+    width: 280px;
+}
+
+#icone{
+    font-size: 30px;
+    margin-left: 15px;
+}
