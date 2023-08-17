@@ -52,10 +52,11 @@
 
 
     <script>
-        let biblioteca = [];
         const IMAGENS = ['image1.png', 'image2.png', 'image3.png', 'image4.png'];
         let imagensAtivas = [];
         let imgIndice = 0;
+        let biblioteca = [];
+
 
         function cadastro(nome, autor, ano) {
             var livro = {
@@ -64,9 +65,6 @@
                 ano: ano
             };
             biblioteca.push(livro)
-
-
-            document.querySelector('.carrossel').style.display = 'block';
         }
 
         function adicionar() {
@@ -79,11 +77,7 @@
 
         }
 
-
-
-
         function mostrarLivros() {
-            // console.log(`resultado:${biblioteca[0].titulo}`)
             let resultado = `${biblioteca[0].titulo}`;
             document.querySelector('#resultado').textContent = resultado
 
@@ -98,28 +92,28 @@
                 text += biblioteca[i].titulo + "<br>";
             }
             document.getElementById("resultado").innerHTML = text;
+            
         
         }
 
-        // const cadastrarBtn = document.getElementById('adicionar'); //id do botao adicionar
-        // const livrosCadastrados = document.getElementById('numero'); //id do texto
-        // const mensagem = document.getElementById('mensagem');
-        // const contador = document.getElementById('numero');
+        const cadastrarBtn = document.getElementById('adicionar'); //id do botao adicionar
+        const livrosCadastrados = document.getElementById('numero'); //id do texto
+        const mensagem = document.getElementById('mensagem');
+        const contador = document.getElementById('numero');
 
-        // let contadorLivros = 0;
+        let contadorLivros = 0;
 
-        // cadastrarBtn.addEventListener('click', () => {
-        // contadorLivros++;
-        // contador.textContent = contadorLivros;
+        cadastrarBtn.addEventListener('click', () => {
+        contadorLivros++;
+        contador.textContent = contadorLivros;
         
-        // if (contadorLivros === 1) {
-        //     mensagem.style.display = 'none';
-        //     livrosCadastrados.style.display = 'block';
-        // }
-        // });
+        if (contadorLivros === 1) {
+            mensagem.style.display = 'none';
+            livrosCadastrados.style.display = 'block';
+        }
+        });
 
-        
-
+            
 
     </script>
 </body>
