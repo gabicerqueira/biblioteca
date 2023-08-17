@@ -27,15 +27,35 @@
     <h1>Cadastro de livros</h1>
     <input type="text" id="nomeLivro" placeholder="Nome">
     <input type="text" id="autorLivro" placeholder="Autor">
-    <input type="text" id="anoLivro" placeholder="Ano">
-    <button onclick="adicionar()">Adicionar livro</button>
+    <input type="" id="anoLivro" placeholder="Ano">
+    <button onclick="adicionar()" id="adicionar">Adicionar livro</button>
     <button onclick="mostrarLivros()">Mostrar</button>
-    <div id="resultado1"></div>
-    <div id="resultado2"></div>
-    <div id="resultado3"></div>
+    <button onclick="apagarLivros()">Deletar</button>
+
+    <div class="resultados">
+        <div id="resultado"></div>
+        <div id="resultado2"></div>
+        <div id="resultado3"></div>
+    </div>
+
+    <p id="mensagem">Cadastre um Livro</p>
+    <p>Total de livros cadastrados: <span id="numero">0</span></p>
+
+    <div class="carrossel" id="carrossel">
+        <img src="" alt="Imagem do carrossel" id="carrosselImagem">
+        <div class="botao">
+            <button id="anterior">Anterior</button>
+            <button id="proximo">Próxima</button>
+        </div>
+    </div>
+
+
 
     <script>
         let biblioteca = [];
+        const IMAGENS = ['image1.png', 'image2.png', 'image3.png', 'image4.png'];
+        let imagensAtivas = [];
+        let imgIndice = 0;
 
         function cadastro(nome, autor, ano) {
             var livro = {
@@ -44,26 +64,63 @@
                 ano: ano
             };
             biblioteca.push(livro)
+
+
+            document.querySelector('.carrossel').style.display = 'block';
         }
 
         function adicionar() {
             let nome = document.getElementById('nomeLivro').value;
             let autor = document.getElementById('autorLivro').value;
             let ano = document.getElementById('anoLivro').value;
-            cadastro(nome, autor, ano);
+            typeof
+                cadastro(nome, autor, ano);
+
+
         }
+
+
+
 
         function mostrarLivros() {
             // console.log(`resultado:${biblioteca[0].titulo}`)
-            let resultado1 = `${biblioteca[0].titulo}`;
-            document.querySelector('#resultado1').textContent = resultado1
+            let resultado = `${biblioteca[0].titulo}`;
+            document.querySelector('#resultado').textContent = resultado
 
             let resultado2 = `${biblioteca[0].autor}`;
             document.querySelector('#resultado2').textContent = resultado2
 
             let resultado3 = `${biblioteca[0].ano}`;
             document.querySelector('#resultado3').textContent = resultado3
+
+            let text = "";
+            for (let i = 0; i < biblioteca.length; i++) {
+                text += biblioteca[i].titulo + "<br>";
+            }
+            document.getElementById("resultado").innerHTML = text;
+        
         }
+
+        // const cadastrarBtn = document.getElementById('adicionar'); //id do botao adicionar
+        // const livrosCadastrados = document.getElementById('numero'); //id do texto
+        // const mensagem = document.getElementById('mensagem');
+        // const contador = document.getElementById('numero');
+
+        // let contadorLivros = 0;
+
+        // cadastrarBtn.addEventListener('click', () => {
+        // contadorLivros++;
+        // contador.textContent = contadorLivros;
+        
+        // if (contadorLivros === 1) {
+        //     mensagem.style.display = 'none';
+        //     livrosCadastrados.style.display = 'block';
+        // }
+        // });
+
+        
+
+
     </script>
 </body>
 

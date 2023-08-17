@@ -26,3 +26,30 @@
     font-size: 30px;
     margin-left: 15px;
 }
+
+
+.carrossel img{
+    width: 410px;
+    height: 420px;
+}
+
+.carrossel{
+    text-align: center;
+    margin: 100px 0;
+}
+
+.carrossel button{
+    padding: 12px 12px;
+    margin: 20px 10px;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.carrossel button:hover{
+    transform: scale(0.8);
+    transition: 0.3s;
+    transform: rotateX('90°');
+}
+
