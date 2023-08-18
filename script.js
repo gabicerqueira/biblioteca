@@ -8,8 +8,9 @@ let biblioteca = [];
                 ano: ano
             };
             biblioteca.push(livro)
-
         }
+
+        
 
         function adicionar() {
             let nome = document.getElementById('nomeLivro').value;
@@ -18,41 +19,42 @@ let biblioteca = [];
             typeof
                 cadastro(nome, autor, ano);
 
+                
+            var IMG = document.getElementById('carrosselImagem');
+
                 document.getElementById('carrossel').style.display = 'block';
 
                 let imgIndice = 0;
-                const IMAGENS = ['image1.png', 'image2.png', 'image3.png', 'image4.png'];
-                const prevButton = document.getElementById('anterior');
-                const nextButton = document.getElementById('proximo');
-        
-                var IMG = document.getElementById('carrosselImagem');
-        
-                function carregar() {
-                    IMG.src = IMAGENS[imgIndice];
-                }
-        
-                prevButton.addEventListener('click', () => {
-                    if (imgIndice > 0) {
-                        --imgIndice
-                        //imgIndice = imgIndice - 1;
-                        carregar();
-                    }
-                });
-        
-                nextButton.addEventListener('click', () => {
-                    var limite = (IMAGENS.length) - 1
-                    if (imgIndice < limite) {
-                        ++imgIndice
-                        //imgIndice = imgIndice + 1;
-                        carregar();
-                    }
-                })
+        const IMAGENS = ['image1.png', 'image2.png', 'image3.png', 'image4.png'];
+        const prevButton = document.getElementById('anterior');
+        const nextButton = document.getElementById('proximo');
 
+        var IMG = document.getElementById('carrosselImagem');
 
-                carregar();
+        function carregar() {
+            IMG.src = IMAGENS[imgIndice];
         }
 
-        
+        prevButton.addEventListener('click', () => {
+            if (imgIndice > 0) {
+                --imgIndice
+                //imgIndice = imgIndice - 1;
+                carregar();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            var limite = (IMAGENS.length) - 1
+            if (imgIndice < limite) {
+                ++imgIndice
+                //imgIndice = imgIndice + 1;
+                carregar();
+            }
+        })
+        carregar();
+        }
+
+    
 
 
         function mostrarLivros() {
@@ -125,3 +127,4 @@ let biblioteca = [];
         
         document.querySelector('#mostrar').addEventListener('click', mostrarLivros);
         document.querySelector('#deletar').addEventListener('click', deletarLivros);
+       
