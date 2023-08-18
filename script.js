@@ -18,6 +18,8 @@ let biblioteca = [];
             typeof
                 cadastro(nome, autor, ano);
 
+                document.getElementById('carrossel').style.display = 'block';
+
                 let imgIndice = 0;
                 const IMAGENS = ['image1.png', 'image2.png', 'image3.png', 'image4.png'];
                 const prevButton = document.getElementById('anterior');
@@ -85,6 +87,7 @@ let biblioteca = [];
         const livrosCadastrados = document.getElementById('numero'); //id do texto
         const mensagem = document.getElementById('mensagem');
         const contador = document.getElementById('numero');
+        const deletarBtn = document.getElementById('deletar');
 
         let contadorLivros = 0;
 
@@ -97,3 +100,24 @@ let biblioteca = [];
                 livrosCadastrados.style.display = 'block';
             }
         });
+        deletarBtn.addEventListener('click', () => {
+            contadorLivros = 0;
+            contador.textContent = `Total de livros cadastrados: ${contadorLivros}`;
+            mensagem.style.display = 'block';
+            livrosCadastrados.style.display = 'none';
+            document.getElementById('carrossel').style.display = 'none';
+
+        });
+
+
+
+        
+
+        function deletarLivros() {
+            document.querySelector('#resultado').innerHTML = "";
+            document.querySelector('#resultado2').innerHTML = "";
+            document.querySelector('#resultado3').innerHTML = "";
+        }
+        
+        document.querySelector('#mostrar').addEventListener('click', mostrarLivros);
+        document.querySelector('#deletar').addEventListener('click', deletarLivros);

@@ -18,8 +18,8 @@
                     <img src="img/logo.png" alt="logo">
                 </div>
                 <div class="navegacao">
-                    <i id="icone" class="fa-regular fa-heart" style="color: #000000;"></i>
-                    <i id="icone" class="fa-solid fa-cart-arrow-down" style="color: #000000;"></i>
+                    <a href="#carrossel"><i id="icone" class="fa-regular fa-heart" style="color: #000000;"></i></a>
+                    <a href="#main"><i id="icone" class="fa-solid fa-cart-arrow-down" style="color: #000000;"></i></a>
                 </div>
             </div>
         </div>
@@ -28,6 +28,7 @@
     <main id="main">
         <h1>CADASTRO DE LIVROS</h1>
         <h3>Adicione até 4 livros</h3>
+        <p class="texto">Cadastro ilimitado de livros, porém terá apenas 4 livros no carrinho</p>
 
         <div class="input">
             <input type="text" id="nomeLivro" placeholder="Nome">
@@ -38,11 +39,11 @@
         <div class="botoes">
             <button onclick="adicionar()" id="adicionar">Adicionar livro</button>
             <button onclick="mostrarLivros()" id="mostrar">Mostrar</button>
-            <button onclick="apagarLivros()">Deletar</button>
+            <button onclick="apagarLivros()" id="deletar">Deletar</button>
         </div>
 
         <p id="mensagem">CADASTRE UM LIVRO!</p>
-        <p id="p">Total de livros cadastrados: <span id="numero">0</span></p>
+        <p id="p">Total de livros cadastrados:<span id="numero">0</span></p>
 
         <div class="containerFlex">
             <div class="caixaResultado">
