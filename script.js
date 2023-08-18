@@ -28,8 +28,7 @@ let biblioteca = [];
                 var IMG = document.getElementById('carrosselImagem');
         
                 function carregar() {
-                     IMG.src = IMAGENS[imgIndice];
-                
+                    IMG.src = IMAGENS[imgIndice];
                 }
         
                 prevButton.addEventListener('click', () => {
@@ -48,8 +47,13 @@ let biblioteca = [];
                         carregar();
                     }
                 })
+
+
                 carregar();
         }
+
+        
+
 
         function mostrarLivros() {
             let resultado = `${biblioteca[0].titulo}`;
