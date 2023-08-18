@@ -25,32 +25,49 @@
     </header>
 
     <main id="main">
-    <h1>CADASTRO DE LIVROS</h1>
-    <h3>Adicione até 4 livros</h3>
-    <input type="text" id="nomeLivro" placeholder="Nome">
-    <input type="text" id="autorLivro" placeholder="Autor">
-    <input type="" id="anoLivro" placeholder="Ano">
-    <button onclick="adicionar()" id="adicionar">Adicionar livro</button>
-    <button onclick="mostrarLivros()" id="mostrar">Mostrar</button>
-    <button onclick="apagarLivros()">Deletar</button>
+        <h1>CADASTRO DE LIVROS</h1>
+        <h3>Adicione até 4 livros</h3>
 
-    <div class="resultados">
-        <div id="resultado"></div>
-        <div id="resultado2"></div>
-        <div id="resultado3"></div>
-    </div>
-
-    <p id="mensagem">Cadastre um Livro</p>
-    <p>Total de livros cadastrados: <span id="numero">0</span></p>
-
-    <div class="carrossel" id="carrossel">
-        <img src="" alt="Imagem do carrossel" id="carrosselImagem">
-        <div class="botao">
-            <button id="anterior">Anterior</button>
-            <button id="proximo">Próxima</button>
+        <div class="input">
+            <input type="text" id="nomeLivro" placeholder="Nome">
+            <input type="text" id="autorLivro" placeholder="Autor">
+            <input type="number" id="anoLivro" placeholder="Ano">
         </div>
-    </div>
-</main>
+
+        <div class="botoes">
+            <button onclick="adicionar()" id="adicionar">Adicionar livro</button>
+            <button onclick="mostrarLivros()" id="mostrar">Mostrar</button>
+            <button onclick="apagarLivros()">Deletar</button>
+        </div>
+
+        <div class="resultados">
+            <div class="resul1">
+                <p class="resulNome">Livro:</p>
+                <div id="resultado"></div>
+            </div>
+
+            <div class="resul2">
+                <p class="resulAutor">Autor:</p>
+                <div id="resultado2"></div>
+            </div>
+
+            <div class="resul3">
+                <p class="resulAno">Ano:</p>
+                <div id="resultado3"></div>
+            </div>
+        </div>
+
+        <p id="mensagem">CADASTRE UM LIVRO</p>
+        <p id="p">Total de livros cadastrados: <span id="numero">0</span></p>
+
+        <div class="carrossel" id="carrossel">
+            <img src="" alt="Imagem do carrossel" id="carrosselImagem">
+            <div class="botao">
+                <button id="anterior">Anterior</button>
+                <button id="proximo">Próxima</button>
+            </div>
+        </div>
+    </main>
 
 
     <script>
@@ -64,6 +81,7 @@
                 ano: ano
             };
             biblioteca.push(livro)
+
         }
 
         function adicionar() {
@@ -72,6 +90,35 @@
             let ano = document.getElementById('anoLivro').value;
             typeof
                 cadastro(nome, autor, ano);
+
+            let imgIndice = 0;
+            const IMAGENS = ['image1.png', 'image2.png', 'image3.png', 'image4.png'];
+            const prevButton = document.getElementById('anterior');
+            const nextButton = document.getElementById('proximo');
+
+            var IMG = document.getElementById('carrosselImagem');
+
+            function carregar() {
+                IMG.src = IMAGENS[imgIndice];
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (imgIndice > 0) {
+                    --imgIndice
+                    //imgIndice = imgIndice - 1;
+                    carregar();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                var limite = (IMAGENS.length) - 1
+                if (imgIndice < limite) {
+                    ++imgIndice
+                    //imgIndice = imgIndice + 1;
+                    carregar();
+                }
+            })
+            carregar();
 
 
         }
@@ -104,38 +151,7 @@
             }
             document.getElementById("resultado3").innerHTML = text3;
 
-            let imgIndice = 0;
-        const IMAGENS = ['image1.png', 'image2.png', 'image3.png', 'image4.png'];
-        const prevButton = document.getElementById('anterior');
-        const nextButton = document.getElementById('proximo');
 
-        var IMG = document.getElementById('carrosselImagem');
-
-        function carregar() {
-            IMG.src = IMAGENS[imgIndice];
-        }
-
-        prevButton.addEventListener('click', () => {
-            if (imgIndice > 0) {
-                --imgIndice
-                //imgIndice = imgIndice - 1;
-                carregar();
-            }
-        });
-
-        nextButton.addEventListener('click', () => {
-            var limite = (IMAGENS.length) - 1
-            if (imgIndice < limite) {
-                ++imgIndice
-                //imgIndice = imgIndice + 1;
-                carregar();
-            }
-        })
-        carregar();
-
-
-
-        
         }
 
 
@@ -147,17 +163,18 @@
         let contadorLivros = 0;
 
         cadastrarBtn.addEventListener('click', () => {
-        contadorLivros++;
-        contador.textContent = contadorLivros;
-        
-        if (contadorLivros === 1) {
-            mensagem.style.display = 'none';
-            livrosCadastrados.style.display = 'block';
-        }
+            contadorLivros++;
+            contador.textContent = contadorLivros;
+
+            if (contadorLivros === 1) {
+                mensagem.style.display = 'none';
+                livrosCadastrados.style.display = 'block';
+            }
         });
 
 
-        
+
+
 
     </script>
 </body>
