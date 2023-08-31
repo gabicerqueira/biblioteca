@@ -1,4 +1,5 @@
 let biblioteca = [];
+const IMAGENS = [];
 
 
         function cadastro(nome, autor, ano) {
@@ -23,6 +24,8 @@ let biblioteca = [];
             var IMG = document.getElementById('carrosselImagem');
 
                 document.getElementById('carrossel').style.display = 'block';
+
+            
 
                 let imgIndice = 0;
         const IMAGENS = ['image1.png', 'image2.png', 'image3.png', 'image4.png'];
@@ -54,7 +57,6 @@ let biblioteca = [];
         carregar();
         }
 
-    
 
 
         function mostrarLivros() {
@@ -127,4 +129,4 @@ let biblioteca = [];
         
         document.querySelector('#mostrar').addEventListener('click', mostrarLivros);
         document.querySelector('#deletar').addEventListener('click', deletarLivros);
-       
+    
